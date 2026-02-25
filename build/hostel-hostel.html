@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>HMS Hostels</title>
+</head>
+<body class="min-h-screen bg-[#05070b] text-gray-100">
+    <div class="flex flex-col min-h-screen">
+        <!-- Top bar -->
+        <header class="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-5 bg-[#141720] border-b border-[#1f2430]">
+            <!-- Brand -->
+            <div class="flex items-center gap-2">
+                <div class="h-3 w-3 rounded bg-cyan-400"></div>
+                <span class="text-lg font-semibold tracking-wide">HMS</span>
+            </div>
+
+            <!-- Main tabs (plain, Rooms active underline) -->
+            <nav class="flex-1 pl-48 min-w-0 px-8">
+                <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm overflow-x-auto no-scrollbar">
+                    <!-- Dashboard -->
+                    <a href="index.html" class="flex-shrink-0 text-gray-300 hover:text-white flex items-center gap-1">
+                        <img src="img/dashboard.png" alt="" class="h-4 w-4">
+                        <span>Dashboard</span>
+                    </a>
+
+                    <!-- Rooms (active) -->
+                    <div class="flex-shrink-0 flex items-center gap-2 border-b-2 border-cyan-400 pb-1">
+                        <a href="hostel-hostel.html" class="text-xs sm:text-sm font-medium text-cyan-400 flex gap-1 items-center">
+                            <img src="img/rooms.png" alt="" class="h-4 w-4">
+                            <span>Rooms</span>
+                        </a>
+                    </div>
+
+                    <!-- Attendance -->
+                    <button class="flex-shrink-0 text-gray-300 hover:text-white flex items-center gap-1">
+                        <img src="img/attendance.png" alt="" class="h-4 w-4">
+                        <span>Attendance</span>
+                    </button>
+
+                    <!-- Accounts -->
+                    <button class="flex-shrink-0 text-gray-300 hover:text-white flex items-center gap-1">
+                        <img src="img/accounts.png" alt="" class="h-4 w-4">
+                        <span>Accounts</span>
+                    </button>
+
+                    <!-- Maintenance -->
+                    <button class="flex-shrink-0 text-gray-300 hover:text-white flex items-center gap-1">
+                        <img src="img/material-symbols_account-balance-outline-rounded (1).png" alt="" class="h-4 w-4">
+                        <span>Maintenance</span>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Right actions -->
+            <div class="flex items-center gap-3 sm:gap-4 ml-2 flex-shrink-0">
+                <button class="flex h-9 w-9 items-center justify-center rounded bg-[#1b202b]">
+                    <img src="img/Vector (Stroke).png" alt="Calendar" class="h-4 w-4">
+                </button>
+                <button class="flex h-9 w-9 items-center justify-center rounded bg-[#1b202b]">
+                    <img src="img/notifications.png" alt="Notifications" class="h-4 w-4">
+                </button>
+                <button class="flex h-9 w-9 items-center justify-center rounded bg-[#1b202b]">
+                    <img src="img/user-icon.png" alt="User" class="h-5 w-5 rounded">
+                </button>
+            </div>
+        </header>
+
+        <!-- Main layout -->
+        <div class="flex flex-1 bg-[#05070b]">
+            <!-- Left sidebar -->
+            <aside class="w-60 bg-[#141720] border-r border-[#1f2430] flex flex-col">
+                
+                <nav class="flex-1 px-2 py-4 space-y-2 text-sm">
+                    <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1b202b] text-gray-300 transition">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-md bg-[#1f2430] text-xs"><img src="img/occupancy.png" alt="" class="h-5 w-5"></span>
+                        <span>Occupancy</span>
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-[#1b202b] text-gray-100">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-md bg-cyan-400 text-black text-xs font-bold">
+                            <img src="img/hostel.png" alt="" class="h-5 w-5">
+                        </span>
+                        <span>Hostels</span>
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1b202b] text-gray-300 transition">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-md bg-[#1f2430] text-xs"><img src="img/room.png" alt=""></span>
+                        <span>Rooms</span>
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1b202b] text-gray-300 transition">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-md bg-[#1f2430] text-xs"><img src="img/assigned.png" alt=""></span>
+                        <span>Assigned</span>
+                    </button>
+                    <button class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#1b202b] text-gray-300 transition">
+                        <span class="flex h-6 w-6 items-center justify-center rounded-md bg-[#1f2430] text-xs"><img src="img/furniture.png" alt=""></span>
+                        <span>Furniture</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Hostels content -->
+            <main class="flex-1 px-4 sm:px-8 py-6 overflow-y-auto">
+                <div class="max-w-6xl mx-auto space-y-6">
+                    <!-- Search + action row -->
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 rounded bg-[#11151e] mr-[900px] px-4 py-2.5">
+                                    <img src="img/search-2-line.png" alt="Search" class="h-4 w-4 opacity-70">
+                                    <input type="text" placeholder="Search ..." class="flex-1 bg-transparent text-xs sm:text-sm outline-none placeholder:text-gray-500">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary row -->
+                        <div class="flex flex-wrap items-center gap-4">
+                            <div class="rounded bg-[#151923] px-5 py-2.5 text-xs flex items-center gap-2">
+                                <span class="text-gray-400">Total Hostels</span>
+                                <span class="text-base font-semibold">4</span>
+                            </div>
+                            <button class="rounded bg-cyan-400 text-[#05070b] text-xs font-semibold px-5 py-3">
+                                +Add Hostel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hostels list -->
+                    <section class="space-y-6">
+                        <!-- Hostel 1 -->
+                        <article class="rounded-3xl bg-[#11151e] px-5 sm:px-7 py-5 sm:py-6 flex flex-col gap-5 shadow-[0_0_0_1px_rgba(31,36,48,0.8)]">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <!-- Left: name + address + donut + button -->
+                                <div class="flex-1 flex flex-col gap-4">
+                                    <div>
+                                        <p class="text-sm font-semibold flex items-center gap-1">
+                                            Hostel 1
+                                            <img src="img/url-white.png" alt="" class="h-3 w-3">
+                                        </p>
+                                       
+                                    </div>
+
+                                    <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6">
+                                        <!-- Donut -->
+                                        <div class="relative h-32 w-32 flex items-center justify-center">
+                                            <svg viewBox="0 0 120 120" class="h-28 w-28 -rotate-90">
+                                                <circle cx="60" cy="60" r="46" class="fill-none stroke-[#262b38]" stroke-width="10"></circle>
+                                                <circle
+                                                    cx="60"
+                                                    cy="60"
+                                                    r="46"
+                                                    class="fill-none stroke-cyan-400"
+                                                    stroke-width="10"
+                                                    stroke-linecap="round"
+                                                    style="stroke-dasharray: 289; stroke-dashoffset: 144.5;"
+                                                ></circle>
+                                            </svg>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-2xl font-semibold">50%</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Add room button -->
+                                        <div class="flex-1 flex items-center md:items-end justify-center md:justify-start">
+                                            <button class="w-full md:w-auto rounded bg-cyan-400 text-[#05070b] text-xs font-semibold px-6 py-2.5">
+                                                +Add Room
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Middle: stats -->
+                                <div class="flex-1 space-y-4">
+                                    <!-- Top chips (4 cards including Collection) -->
+                                    <div class="grid grid-cols-4 gap-3 text-xs w-full">
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1b1826]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/beddings.png" alt="Rooms" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">458</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#111f21]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/toiletry.png" alt="Keys" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">5</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#231616]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/kitchen-cooker.png" alt="Floors" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">15</span>
+                                        </div>
+                                       
+                                    </div>
+
+                                    <!-- Grid stats -->
+                                    <div class="grid grid-cols-3 gap-3 text-[11px]">
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Total Rooms</p>
+                                            <p class="text-base font-semibold">458</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Occupied</p>
+                                            <p class="text-base font-semibold text-yellow-300">58</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Floors</p>
+                                            <p class="text-base font-semibold">3</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Students</p>
+                                            <p class="text-base font-semibold">6582</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">In Hostel</p>
+                                            <p class="text-base font-semibold text-cyan-400">1569</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Outside Hostel</p>
+                                            <p class="text-base font-semibold">2500</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Collection + Furniture (side by side) -->
+                                <div class="w-full lg:w-[420px] xl:w-[460px] flex gap-4">
+                                    <!-- Collection card -->
+                                    <div class="flex-[2] rounded-2xl bg-[#151923] px-4 py-4 space-y-3">
+                                        <div class="flex items-center justify-between text-xs">
+                                            <p class="font-semibold">Collection</p>
+                                        </div>
+                                        <div class="flex items-center justify-center">
+                                            <div class="relative h-24 w-24 flex items-center justify-center">
+                                                <svg viewBox="0 0 120 120" class="h-20 w-20 -rotate-90">
+                                                    <defs>
+                                                        <linearGradient id="collection-ring" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                            <stop offset="0%" stop-color="#22d3ee" />
+                                                            <stop offset="33%" stop-color="#facc15" />
+                                                            <stop offset="66%" stop-color="#22c55e" />
+                                                            <stop offset="100%" stop-color="#ec4899" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                    <circle cx="60" cy="60" r="40" class="fill-none stroke-[#262b38]" stroke-width="10"></circle>
+                                                    <circle
+                                                        cx="60"
+                                                        cy="60"
+                                                        r="40"
+                                                        class="fill-none"
+                                                        stroke="url(#collection-ring)"
+                                                        stroke-width="10"
+                                                        stroke-linecap="round"
+                                                        style="stroke-dasharray: 251; stroke-dashoffset: 188.25;"
+                                                    ></circle>
+                                                </svg>
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                    <span class="text-lg font-semibold">25%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Furniture card -->
+                                    <div class="flex-1 rounded-2xl bg-[#151923] px-4 py-4 space-y-3">
+                                        <div class="flex items-center justify-between text-xs">
+                                            <p class="font-semibold">Furniture</p>
+                                            <button class="flex items-center gap-1 text-gray-400 hover:text-gray-200">
+                                                <img src="img/url-white.png" alt="" class="h-3 w-3">
+                                            </button>
+                                        </div>
+                                        <div class="space-y-2 text-[11px]">
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Ceiling Fan</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>50</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Center Table</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>12</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Chairs</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>123</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Refrigerator</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>6</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Collection amounts row -->
+                            <div class="mt-4 grid grid-cols-4 gap-3 text-[11px]">
+                                <div class="rounded-xl bg-[#151923] px-4 py-3 space-y-1">
+                                    <p class="text-gray-400">Expected</p>
+                                    <p class="text-sm font-semibold">₹ 15,65,852</p>
+                                </div>
+                                <div class="rounded-xl bg-[#151923] px-4 py-3 space-y-1">
+                                    <p class="text-gray-400">Collected</p>
+                                    <p class="text-sm font-semibold text-cyan-400">₹ 3,91,463</p>
+                                </div>
+                                <div class="rounded-xl bg-[#151923] px-4 py-3 space-y-1">
+                                    <p class="text-gray-400">Remaining</p>
+                                    <p class="text-sm font-semibold text-yellow-300">₹ 7,51,608</p>
+                                </div>
+                                <div class="rounded-xl bg-[#151923] px-4 py-3 space-y-1">
+                                    <p class="text-gray-400">Overdue</p>
+                                    <p class="text-sm font-semibold text-pink-500">₹ 4,85,414.12</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Hostel 2 (duplicate layout, slightly dimmer) -->
+                        <article class="rounded-3xl bg-[#11151e] px-5 sm:px-7 py-5 sm:py-6 flex flex-col gap-5 shadow-[0_0_0_1px_rgba(31,36,48,0.6)]">
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <!-- Left: name + address + donut + button -->
+                                <div class="flex-1 flex flex-col gap-4">
+                                    <div>
+                                        <p class="text-sm font-semibold flex items-center gap-1">
+                                            Hostel 2
+                                            <img src="img/url-white.png" alt="" class="h-3 w-3">
+                                        </p>
+                                       
+                                    </div>
+
+                                    <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6">
+                                        <!-- Donut -->
+                                        <div class="relative h-32 w-32 flex items-center justify-center">
+                                            <svg viewBox="0 0 120 120" class="h-28 w-28 -rotate-90">
+                                                <circle cx="60" cy="60" r="46" class="fill-none stroke-[#262b38]" stroke-width="10"></circle>
+                                                <circle
+                                                    cx="60"
+                                                    cy="60"
+                                                    r="46"
+                                                    class="fill-none stroke-cyan-400"
+                                                    stroke-width="10"
+                                                    stroke-linecap="round"
+                                                    style="stroke-dasharray: 289; stroke-dashoffset: 144.5;"
+                                                ></circle>
+                                            </svg>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-2xl font-semibold">50%</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Add room button -->
+                                        <div class="flex-1 flex items-center md:items-end justify-center md:justify-start">
+                                            <button class="w-full md:w-auto rounded bg-cyan-400 text-[#05070b] text-xs font-semibold px-6 py-2.5">
+                                                +Add Room
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Middle: stats -->
+                                <div class="flex-1 space-y-4">
+                                    <!-- Top chips (4 cards including Collection) -->
+                                    <div class="grid grid-cols-4 gap-3 text-xs w-full">
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1b1826]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/beddings.png" alt="Rooms" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">458</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#111f21]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/toiletry.png" alt="Keys" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">5</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#231616]">
+                                            <div class="h-8 w-8 flex items-center justify-center rounded-md bg-[#05070b]/60 overflow-hidden">
+                                                <img src="img/kitchen-cooker.png" alt="Floors" class="h-6 w-6 object-contain">
+                                            </div>
+                                            <span class="font-semibold">15</span>
+                                        </div>
+                                        <!-- Collection card -->
+                                        
+                                    </div>
+
+                                    <!-- Grid stats -->
+                                    <div class="grid grid-cols-3 gap-3 text-[11px]">
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Total Rooms</p>
+                                            <p class="text-base font-semibold">458</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Occupied</p>
+                                            <p class="text-base font-semibold text-yellow-300">58</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Floors</p>
+                                            <p class="text-base font-semibold">3</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Students</p>
+                                            <p class="text-base font-semibold">6582</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">In Hostel</p>
+                                            <p class="text-base font-semibold text-cyan-400">1569</p>
+                                        </div>
+                                        <div class="rounded-xl bg-[#141924] px-3 py-2.5 space-y-1">
+                                            <p class="text-gray-400">Outside Hostel</p>
+                                            <p class="text-base font-semibold">2500</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Collection + Furniture (side by side) -->
+                                <div class="w-full lg:w-[420px] xl:w-[460px] flex gap-4">
+                                    <!-- Collection card -->
+                                    <div class="flex-[2] rounded-2xl bg-[#151923] px-4 py-4 space-y-3">
+                                        <div class="flex items-center justify-between text-xs">
+                                            <p class="font-semibold">Collection</p>
+                                           
+                                        </div>
+                                        <div class="flex items-center justify-center">
+                                            <div class="relative h-24 w-24 flex items-center justify-center">
+                                                <svg viewBox="0 0 120 120" class="h-20 w-20 -rotate-90">
+                                                    <circle cx="60" cy="60" r="40" class="fill-none stroke-[#262b38]" stroke-width="10"></circle>
+                                                    <circle
+                                                        cx="60"
+                                                        cy="60"
+                                                        r="40"
+                                                        class="fill-none"
+                                                        stroke="url(#collection-ring)"
+                                                        stroke-width="10"
+                                                        stroke-linecap="round"
+                                                        style="stroke-dasharray: 251; stroke-dashoffset: 188.25;"
+                                                    ></circle>
+                                                </svg>
+                                                <div class="absolute inset-0 flex items-center justify-center">
+                                                    <span class="text-lg font-semibold">25%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Furniture card -->
+                                    <div class="flex-1 rounded-2xl bg-[#151923] px-4 py-4 space-y-3">
+                                        <div class="flex items-center justify-between text-xs">
+                                            <p class="font-semibold">Furniture</p>
+                                            <button class="flex items-center gap-1 text-gray-400 hover:text-gray-200">
+                                                <img src="img/url-white.png" alt="" class="h-3 w-3">
+                                            </button>
+                                        </div>
+                                        <div class="space-y-2 text-[11px]">
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Ceiling Fan</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>50</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Center Table</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>12</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Chairs</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>123</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center justify-between rounded-lg bg-[#11151e] px-3 py-2">
+                                                <span>Refrigerator</span>
+                                                <span class="flex items-center gap-1 text-gray-300">
+                                                    <span>6</span>
+                                                    <span class="text-xs text-gray-500">›</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
+
